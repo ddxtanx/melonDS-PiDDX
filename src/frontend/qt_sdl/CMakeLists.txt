@@ -211,3 +211,5 @@ if (UNIX AND NOT APPLE)
     install(FILES ${CMAKE_SOURCE_DIR}/res/net.kuribo64.melonDS.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications)
     install(TARGETS melonDS BUNDLE DESTINATION ${CMAKE_BINARY_DIR} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif()
+
+target_link_libraries(melonDS PRIVATE piddx-renderer)

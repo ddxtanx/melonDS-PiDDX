@@ -136,3 +136,5 @@ endif()
 if (ENABLE_JIT_PROFILING)
     target_link_libraries(core PRIVATE jitprofiling)
 endif()
+
+add_subdirectory(PiDDX)

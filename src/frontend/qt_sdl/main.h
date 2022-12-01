@@ -39,6 +39,7 @@
 
 #include "FrontendUtil.h"
 #include "duckstation/gl/context.h"
+#include "../PiDDX/renderer.h"
 
 class EmuThread : public QThread
 {
@@ -95,6 +96,7 @@ private:
     int PrevEmuStatus;
     int EmuRunning;
     int EmuPause;
+    PiDDXRenderer ddxRenderer;
 
     std::atomic<int> ContextRequest = 0;
 

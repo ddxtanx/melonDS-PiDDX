@@ -97,6 +97,8 @@
 
 #include "CLI.h"
 
+#include "../PiDDX/renderer.h"
+
 // TODO: uniform variable spelling
 
 bool RunningSomething;
@@ -665,6 +667,7 @@ void EmuThread::run()
                 FrontBuffer = GPU::FrontBuffer;
                 drawScreenGL();
             }
+            ddxRenderer.render(GPU::Framebuffer, GPU::FrontBuffer);
 
 #ifdef MELONCAP
             MelonCap::Update();
@@ -911,6 +914,7 @@ void EmuThread::drawScreenGL()
                             GL_UNSIGNED_BYTE, GPU::Framebuffer[frontbuf][0]);
             glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 192+2, 256, 192, GL_RGBA,
                             GL_UNSIGNED_BYTE, GPU::Framebuffer[frontbuf][1]);
+            
         }
     }
 
